@@ -23,8 +23,8 @@ def multiplication_odd_num(var):
             res *= int(number)
             odd_count += 1
 
-        if odd_count == 0:
-            res = 0
+    if odd_count == 0:
+        res = 0
 
     print("\nПроизведение нечетных цифр введенного целого числа равно: %d" % res)
 
