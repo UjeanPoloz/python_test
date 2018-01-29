@@ -12,21 +12,8 @@ def pretty_print_matrix(matrix, n=0):
         print()
     print()
 
-# def sort_matrix(group):
-#     copy_group = group
-#     sorted_group = [[i for i in range(rows)] \
-#                     for ii in range(columns)]
-#     new_row = []
-#
-#     print(sorted_group)
-#     # group.sort(reverse=False, key=lambda elem: elem[1])
-#     for ind_rows in range(len(copy_group)):
-#         for ind_var in range(len(group[ind_rows])):
-#             new_row.append(group[ind_rows][ind_var])
-#         print(new_row)
-
-def sorted_matrix(group):
-    group = list(tuple(zip(*group[::-1])))
+def sort_matrix(group):
+    group = list(zip(*group[::-1]))
 
     for ind in range(len(group)):
         group[ind] = list(group[ind])
@@ -35,7 +22,7 @@ def sorted_matrix(group):
         else:
             group[ind].sort()
 
-    group = list(tuple(zip(*group[::1])))
+    group = list(zip(*group[::1]))
     return group
 
 matrix_columns = 5
@@ -49,4 +36,4 @@ matrix = [[random.randint(low_bound, hight_bound) for i in range(matrix_columns)
 
 pretty_print_matrix(matrix)
 
-pretty_print_matrix(sorted_matrix(matrix), n=1)
+pretty_print_matrix(sort_matrix(matrix), n=1)
