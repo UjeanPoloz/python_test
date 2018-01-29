@@ -1,14 +1,14 @@
 def input_var():
     while True:
-        choose = str(input('\nИспользовать дефолтные занчения a=1 b=2 c=3? Y or N: '))
+        choise = input('\nИспользовать дефолтные занчения a=1 b=2 c=3? Y or N: ')
 
-        if choose == 'y' or choose == 'Y':
+        if choise == 'y' or choise == 'Y':
             var_a = 1
             var_b = 2
             var_c = 3
             break
 
-        elif choose == 'n' or choose == 'N':
+        elif choise == 'n' or choise == 'N':
             var_a = int(input('Введите значение а: '))
             var_b = int(input('Введите значение b: '))
             var_c = int(input('Введите значение c: '))
@@ -20,7 +20,7 @@ def input_var():
     print('')
     return var_a, var_b, var_c
 
-def is_int_float(var):
+def has_fraction(var):
     return var - int(var) == 0
 
 def equation(var_a, var_b, var_c):
@@ -46,7 +46,7 @@ def equation(var_a, var_b, var_c):
         results = [equation_1, equation_2, equation_3]
 
     for i, res in enumerate(results):
-        if is_int_float(res):
+        if has_fraction(res):
             print('Ответ на пример %d равен: %d' % (i + 1, res))
         else:
             print('Ответ на пример %d равен: %.3f' % (i + 1, res))
