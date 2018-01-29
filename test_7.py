@@ -1,8 +1,8 @@
-def fibonchi_row(number):
+def fiboncсi_row(number):
     if number == 1 or number == 2:
         return 1
     else:
-        return fibonchi_row(number - 1) + fibonchi_row(number - 2)
+        return fiboncсi_row(number - 1) + fiboncсi_row(number - 2)
 
 def my_input():
     while True:
@@ -14,11 +14,10 @@ def my_input():
             break
     return var
 
-summ_fibonachi = 0
+summ_fibonacсi = 0
 
 user_input = my_input()
 
-for i in range(1,user_input+1):
-    summ_fibonachi += fibonchi_row(i)
+summ_fibonacсi = sum([fiboncсi_row(_) for _ in range(1,user_input+1)])
 
-print('Сумма первых %d чисел ряда Фибоначчи равна: %d' % (user_input, summ_fibonachi))
+print('\nСумма первых %d чисел ряда Фибоначчи равна: %d' % (user_input, summ_fibonacсi))
