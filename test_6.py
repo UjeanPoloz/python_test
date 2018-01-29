@@ -1,25 +1,19 @@
 import re
 
-def my_input():
-    while True:
-        try:
-            var = str(input("Введите строку для работы с ней: "))
-        except ValueError:
-            print("Алгоритм принимает только строки!\n")
-        else:
-            break
-    return var
+var_input = input("Введите строку для работы с ней: ")
 
-user_str = re.sub(r'[\s]','', my_input())
+user_str = re.sub(r'[\s]','', var_input)
 ind = 0
-concurrences = False
+duplications = False
 
 for ind, letter in enumerate(user_str):
     for j in range(ind+1, len(user_str)):
         if letter == user_str[j]:
-            concurrences = True
+            duplications = True
 
-if concurrences:
-    print('\nСтрока не изограмма')
-else:
+    if duplications:
+        print('\nСтрока не изограмма')
+        break
+
+if not duplications:
     print('\nСтрока изограмма')
