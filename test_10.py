@@ -9,13 +9,7 @@ def my_input():
         except ValueError:
             print("\nАлгоритм принимает только строки!")
         else:
-            if var == 'r':
-                break
-            elif var == 'p':
-                break
-            elif var == 's':
-                break
-            elif var == 'q':
+            if var in ['r', 'p', 's', 'q']:
                 break
 
     return var
@@ -47,22 +41,22 @@ while True:
 
     print('Раунд %d. Вы: %d | %d :Комп' % (n_round, user_win, sys_win))
 
-    sys_chooise = random.choice(['r', 's', 'p'])
-    user_chooise = my_input()
+    sys_choice = random.choice(['r', 's', 'p'])
+    user_choice = my_input()
 
-    if user_chooise == 'q':
+    if user_choice == 'q':
         print('Игра остановленна')
         break
 
-    winner_num = find_winner(user_chooise, sys_chooise)
+    winner_num = find_winner(user_choice, sys_choice)
 
     if winner_num:
-        print('\nВы выиграли\n')
+        print('\n{green}Вы выиграли{end}\n'.format(green='\033[92m', end='\033[0m'))
         user_win += 1
     elif winner_num == None:
         print('Ничья')
     else:
-        print('\nВыиграл компьютер\n')
+        print('\n{red}Выиграл компьютер{end}\n'.format(red='\033[91m', end='\033[0m'))
         sys_win += 1
 
     n_round += 1
