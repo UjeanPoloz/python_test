@@ -18,6 +18,6 @@ summ_fibonacсi = 0
 
 user_input = my_input()
 
-summ_fibonacсi = sum([fiboncсi_row(_) for _ in range(1,user_input+1)])
+summ_fibonacсi = sum([fiboncсi_row(i) for i in range(1,user_input+1)])
 
 print('\nСумма первых %d чисел ряда Фибоначчи равна: %d' % (user_input, summ_fibonacсi))
