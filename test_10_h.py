@@ -1,11 +1,6 @@
 import random
 
-def pretty_print_matrix(matrix, n=0):
-    if n == 0:
-        print('\n---Matrix---\n')
-    else:
-        print('\n---Sorted Matrix---\n')
-
+def pretty_print_matrix(matrix):
     for row in matrix:
         for elem in row:
             print('%d' % elem, end='\t')
@@ -13,23 +8,12 @@ def pretty_print_matrix(matrix, n=0):
     print()
 
 def rotate_matrix(matrix):
-    rotated_matrix = list(zip(*matrix[::-1]))
-    for ind in range(len(rotated_matrix)):
-        rotated_matrix[ind] = list(rotated_matrix[ind])
+    rotated_matrix = [list(i) for i in zip(*matrix[::-1])]
     return rotated_matrix
 
-def get_max_min_digit(number, n='all'):
-    if n == 'all':
-        return int(max(number)), int(min(number))
-    if n == 'min':
-        return int(min(number))
-    if n == 'max':
-        return int(max(number))
-
-
-matrix_columns = 3
+matrix_columns = 5
 matrix_rows = 3
-low_bound = -5
+low_bound = -10
 hight_bound = abs(low_bound)
 coordinat_list = 0
 
@@ -50,14 +34,13 @@ matrix_test_3 = [[2, 3, 5, 2],
 
 
 pretty_print_matrix(matrix)
-
 rotated_matrix = rotate_matrix(matrix)
 
 for ind, rows in enumerate(matrix):
-    min_var = get_max_min_digit(rows, n='min')
+    min_var = int(min(rows))
 
     for rotated_ind, rotated_rows in enumerate(rotated_matrix):
-        max_var = get_max_min_digit(rotated_rows, n='max')
+        max_var = int(max(rotated_rows))
 
         if max_var == min_var:
             coordinat_list += 1
