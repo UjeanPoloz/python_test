@@ -5,9 +5,7 @@ def is_isogram(str_var):
     ind = 0
 
     for ind, letter in enumerate(user_str):
-        for j in range(ind + 1, len(user_str)):
-
-            if letter == user_str[j]:
+            if letter in user_str[ind+1:]:
                 return False
 
     return True
