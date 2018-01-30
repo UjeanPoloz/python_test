@@ -1,10 +1,11 @@
 import random
 
-def pretty_print_matrix(matrix, n=0):
-    if n == 0:
-        print('\n---Matrix---\n')
-    else:
+def pretty_print_matrix(matrix, sorted=False):
+    if sorted:
         print('\n---Sorted Matrix---\n')
+    else:
+        print('\n---Matrix---\n')
+
 
     for row in matrix:
         for elem in row:
@@ -36,4 +37,4 @@ matrix = [[random.randint(low_bound, hight_bound) for i in range(matrix_columns)
 
 pretty_print_matrix(matrix)
 
-pretty_print_matrix(sort_matrix(matrix), n=1)
+pretty_print_matrix(sort_matrix(matrix), True)
