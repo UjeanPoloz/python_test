@@ -9,27 +9,26 @@ def my_input(n = 1):
             break
     return var
 
-def has_fraction(var):
-    return var - int(var) == 0
+def pp_vars(var, p_num):
+    if var - int(var) == 0:
+        print('Чиcло %d ближе к %d' % (var, p_num))
+    else:
+        print('Чиcло %.3f ближе к %d' % (var, p_num))
 
 point_number = 10.0
 
 user_number_first = my_input(1)
 user_number_second = my_input(2)
 
-length_section_first = abs(point_number - user_number_first)
-length_section_second = abs(point_number - user_number_second)
+length_section_first = abs(float(point_number - user_number_first))
+length_section_second = abs(float(point_number - user_number_second))
 
 if length_section_first < length_section_second:
-    if has_fraction(user_number_first):
-        print('Чиcло %d ближе к %d' % (user_number_first, point_number))
-    else:
-        print('Чиcло %f ближе к %d' % (user_number_first, point_number))
-elif length_section_second == length_section_second:
-    print('Числа находятся на одном росстояние от %d' % point_number)
+    pp_vars(user_number_first, point_number)
+
+elif length_section_first > length_section_second:
+    pp_vars(user_number_second, point_number)
+
 else:
-    if has_fraction(user_number_second):
-        print('Чиcло %d ближе к %d' % (user_number_second, point_number))
-    else:
-        print('Чиcло %f ближе к %d' % (user_number_first, point_number))
+    print('Числа находятся на одном росстояние от %d' % point_number)
 
